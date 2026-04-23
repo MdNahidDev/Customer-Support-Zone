@@ -1,121 +1,122 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState, useEffect, Suspense } from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Container from "./components/Container";
+import Tickets from "./Tickets";
+import Taskstatus from "./components/Taskstatus";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+async function fetchData() {
+  const path = `${import.meta.env.BASE_URL}ticketsdata.json`;
+  console.log("Fetching data from:", path);
+  const res = await fetch(path);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch ticketsdata.json: ${res.statusText}`);
+  }
+
+  return res.json();
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tickets, setTickets] = useState([]);
+  const [tasks, setTasks] = useState([]);
+  const [resolvedTasks, setResolvedTasks] = useState([]);
+
+  useEffect(() => {
+    fetchData().then((data) => setTickets(data));
+  }, []);
+
+  const handleTask = (ticket) => {
+    if (
+      !tasks.find((tick) => tick.id === ticket.id) &&
+      !resolvedTasks.find((tick) => tick.id === ticket.id)
+    ) {
+      setTasks((card) => [...card, ticket]);
+      toast.info(`${ticket.title} added to Task Status!`);
+    }
+  };
+
+  const taskComplete = (id) => {
+    const taskCompleted = tasks.find((task) => task.id === id);
+    if (taskCompleted) {
+      setResolvedTasks((card) => [...card, taskCompleted]);
+
+      setTasks((card) => card.filter((task) => task.id !== id));
+      setTickets((cardTickets) =>
+        cardTickets.filter((tickets) => tickets.id !== id),
+      );
+      toast.success(`Ticket ${id} Complete!`);
+    }
+  };
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <Navbar></Navbar>
 
-      <div className="ticks"></div>
+      <Container>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-20 p-2 md:p-0 mt-5 md:mt-20">
+          <div className="relative rounded-md text-white p-7 h-40 md:h-62  bg-gradient-to-br from-[#422AD5] to-purple-400 text-center flex flex-col items-center justify-center">
+            <img
+              src="./assets/vector1.png"
+              alt="left"
+              className="absolute left-0 bottom-0 w-1/3 h-full"
+            />
+            <img
+              src="./assets/vector2.png"
+              alt="right"
+              className="absolute right-0 top-0 w-1/3 h-full"
+            />
+            <h2 className="text-2xl">In-Progress</h2>
+            <p className="font-semibold text-4xl md:text-6xl">{tasks.length}</p>
+          </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+          <div className="relative rounded-md text-white p-7 h-40 md:h-62 bg-gradient-to-br from-[#54CF68] to-[#00827A] text-center flex flex-col items-center justify-center">
+            <img
+              src="./assets/vector1.png"
+              alt="left"
+              className="absolute left-0 bottom-0 w-1/3 h-full"
+            />
+            <img
+              src="./assets/vector2.png"
+              alt="right"
+              className="absolute right-0 top-0 w-1/3 h-full"
+            />
+            <h2 className="text-2xl">Resolved</h2>
+            <p className="font-semibold text-4xl md:text-6xl">
+              {resolvedTasks.length}
+            </p>
+          </div>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      </Container>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <Container>
+        <Suspense>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 my-10 mt-15 md:mt-20">
+            <div className="md:col-span-2 w-full min-w-0 ">
+              <Tickets ticketsdata={tickets} handleTask={handleTask}></Tickets>
+            </div>
+            <div className="md:col-span-1 w-full ">
+              <Taskstatus
+                tasks={tasks}
+                taskComplete={taskComplete}
+                resolvedTasks={resolvedTasks}
+              ></Taskstatus>
+            </div>
+          </div>
+        </Suspense>
+      </Container>
+
+      {/* <div>
+        <Tickets  ticketsdata = {ticketsdata} onList = {handleTicket}></Tickets>
+      </div> */}
+
+      {/* <Tickets fetchPromise={fetchPromise}></Tickets> */}
+
+      <Footer></Footer>
+      <ToastContainer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

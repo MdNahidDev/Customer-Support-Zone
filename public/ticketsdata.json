@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Login page not loading",
+    "description": "Users are experiencing issues accessing the login page. The page shows a blank screen instead of the login form.",
+    "status": "Open",
+    "priority": "HIGH PRIORITY",
+    "customer": "John Doe",
+    "createdAt": "2024-01-15"
+  },
+  {
+    "id": 2,
+    "title": "Payment gateway timeout",
+    "description": "Customers reporting timeout errors when trying to complete payment transactions during peak hours.",
+    "status": "In-Progress",
+    "priority": "HIGH PRIORITY",
+    "customer": "Sarah Smith",
+    "createdAt": "2024-01-14"
+  },
+  {
+    "id": 3,
+    "title": "Email verification delay",
+    "description": "Email verification messages are taking longer than expected to arrive. Users are unable to complete registration.",
+    "status": "Open",
+    "priority": "MEDIUM PRIORITY",
+    "customer": "Mike Johnson",
+    "createdAt": "2024-01-13"
+  },
+  {
+    "id": 4,
+    "title": "Dashboard slow performance",
+    "description": "The dashboard is loading slowly and occasionally freezing. Performance issues noticed during data aggregation.",
+    "status": "In-Progress",
+    "priority": "MEDIUM PRIORITY",
+    "customer": "Emily Davis",
+    "createdAt": "2024-01-12"
+  },
+  {
+    "id": 5,
+    "title": "Export feature not working",
+    "description": "Users cannot export reports in PDF format. The export button appears to be non-functional.",
+    "status": "Open",
+    "priority": "LOW PRIORITY",
+    "customer": "Robert Wilson",
+    "createdAt": "2024-01-11"
+  },
+  {
+    "id": 6,
+    "title": "Mobile app crashes on startup",
+    "description": "iOS users reporting that the app crashes immediately upon opening. Issue appears to be version-specific.",
+    "status": "Open",
+    "priority": "HIGH PRIORITY",
+    "customer": "Lisa Anderson",
+    "createdAt": "2024-01-10"
+  },
+  {
+    "id": 7,
+    "title": "Two-factor authentication issue",
+    "description": "Some users are having trouble entering the 2FA code. Codes appear to expire too quickly.",
+    "status": "In-Progress",
+    "priority": "MEDIUM PRIORITY",
+    "customer": "David Martinez",
+    "createdAt": "2024-01-09"
+  },
+  {
+    "id": 8,
+    "title": "Search functionality returning no results",
+    "description": "The search feature is not returning any results even for entries that definitely exist in the database.",
+    "status": "Open",
+    "priority": "MEDIUM PRIORITY",
+    "customer": "Jennifer Brown",
+    "createdAt": "2024-01-08"
+  }
+]
