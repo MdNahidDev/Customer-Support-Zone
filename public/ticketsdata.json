@@ -1,74 +1,92 @@
 [
   {
     "id": 1,
-    "title": "Login page not loading",
-    "description": "Users are experiencing issues accessing the login page. The page shows a blank screen instead of the login form.",
+    "title": "AI Token limit reaching zero prematurely",
+    "description": "Users on the 'Pro 2026' plan are reporting that their monthly AI generation tokens are resetting to zero 10 days before the billing cycle ends.",
     "status": "Open",
     "priority": "HIGH PRIORITY",
-    "customer": "John Doe",
-    "createdAt": "2024-01-15"
+    "customer": "Zayn Malik",
+    "createdAt": "2026-04-20"
   },
   {
     "id": 2,
-    "title": "Payment gateway timeout",
-    "description": "Customers reporting timeout errors when trying to complete payment transactions during peak hours.",
+    "title": "T20 World Cup 2026 Live Sync Error",
+    "description": "The real-time match data integration is lagging by 5 minutes. Fans are getting score updates on their dashboard after they've already happened.",
     "status": "In-Progress",
     "priority": "HIGH PRIORITY",
-    "customer": "Sarah Smith",
-    "createdAt": "2024-01-14"
+    "customer": "Ariful Islam",
+    "createdAt": "2026-04-22"
   },
   {
     "id": 3,
-    "title": "Email verification delay",
-    "description": "Email verification messages are taking longer than expected to arrive. Users are unable to complete registration.",
+    "title": "Biometric login failing on new 2026 devices",
+    "description": "FaceID and Fingerprint authentication on the latest 2026 smartphone models are returning 'Hardware Not Recognized' errors.",
     "status": "Open",
     "priority": "MEDIUM PRIORITY",
-    "customer": "Mike Johnson",
-    "createdAt": "2024-01-13"
+    "customer": "Sarah Jenkins",
+    "createdAt": "2026-04-18"
   },
   {
     "id": 4,
-    "title": "Dashboard slow performance",
-    "description": "The dashboard is loading slowly and occasionally freezing. Performance issues noticed during data aggregation.",
+    "title": "Crypto-Payment refund stuck on blockchain",
+    "description": "A transaction refund initiated for a failed subscription has been pending for 48 hours. Need to verify the smart contract status.",
     "status": "In-Progress",
-    "priority": "MEDIUM PRIORITY",
-    "customer": "Emily Davis",
-    "createdAt": "2024-01-12"
+    "priority": "HIGH PRIORITY",
+    "customer": "Marcus Thorne",
+    "createdAt": "2026-04-15"
   },
   {
     "id": 5,
-    "title": "Export feature not working",
-    "description": "Users cannot export reports in PDF format. The export button appears to be non-functional.",
+    "title": "AR Preview not rendering properly",
+    "description": "The Augmented Reality 'Try-On' feature in the mobile app is showing distorted textures on the latest OS update.",
     "status": "Open",
     "priority": "LOW PRIORITY",
-    "customer": "Robert Wilson",
-    "createdAt": "2024-01-11"
+    "customer": "Lily Chen",
+    "createdAt": "2026-04-10"
   },
   {
     "id": 6,
-    "title": "Mobile app crashes on startup",
-    "description": "iOS users reporting that the app crashes immediately upon opening. Issue appears to be version-specific.",
+    "title": "Privacy Mode hiding essential navigation",
+    "description": "With the new 2026 'Ultra-Privacy' setting enabled, the main sidebar menu completely disappears for users in the European region.",
     "status": "Open",
-    "priority": "HIGH PRIORITY",
-    "customer": "Lisa Anderson",
-    "createdAt": "2024-01-10"
+    "priority": "MEDIUM PRIORITY",
+    "customer": "Hans Schmidt",
+    "createdAt": "2026-04-12"
   },
   {
     "id": 7,
-    "title": "Two-factor authentication issue",
-    "description": "Some users are having trouble entering the 2FA code. Codes appear to expire too quickly.",
+    "title": "Voice Command 'Submit' not responding",
+    "description": "Users using voice accessibility features report that the command 'Submit Ticket' is ignored by the browser interface.",
     "status": "In-Progress",
-    "priority": "MEDIUM PRIORITY",
-    "customer": "David Martinez",
-    "createdAt": "2024-01-09"
+    "priority": "LOW PRIORITY",
+    "customer": "Emily Rose",
+    "createdAt": "2026-04-05"
   },
   {
     "id": 8,
-    "title": "Search functionality returning no results",
-    "description": "The search feature is not returning any results even for entries that definitely exist in the database.",
+    "title": "Enterprise Dashboard Data Leak Warning",
+    "description": "A security patch from early April seems to have caused a permission bug where Junior Managers can see Senior Executive payroll data.",
+    "status": "Open",
+    "priority": "HIGH PRIORITY",
+    "customer": "Robert Fox",
+    "createdAt": "2026-04-23"
+  },
+  {
+    "id": 9,
+    "title": "Translation API mistranslating 'Refund'",
+    "description": "In the Bengali and Hindi localized versions, the 'Refund' button is being translated as 'Delete Account', causing major customer confusion.",
+    "status": "In-Progress",
+    "priority": "MEDIUM PRIORITY",
+    "customer": "Nahid Hasan",
+    "createdAt": "2026-04-21"
+  },
+  {
+    "id": 10,
+    "title": "Cloud Storage Upgrade not applying",
+    "description": "User purchased the 5TB expansion pack yesterday, but their account still shows a 'Storage Full' warning at 50GB.",
     "status": "Open",
     "priority": "MEDIUM PRIORITY",
-    "customer": "Jennifer Brown",
-    "createdAt": "2024-01-08"
+    "customer": "Chloe Bennett",
+    "createdAt": "2026-04-19"
   }
 ]

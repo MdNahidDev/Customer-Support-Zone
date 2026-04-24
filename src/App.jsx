@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { use, useState, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Container from "./components/Container";
@@ -7,25 +7,17 @@ import Taskstatus from "./components/Taskstatus";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-async function fetchData() {
-  const path = `${import.meta.env.BASE_URL}ticketsdata.json`;
-  console.log("Fetching data from:", path);
-  const res = await fetch(path);
-  if (!res.ok) {
-    throw new Error(`Failed to fetch ticketsdata.json: ${res.statusText}`);
-  }
-
+const fetchTicketData = async () => {
+  const res = await fetch(`./ticketsdata.json`);
   return res.json();
-}
+};
+
+const ticketsPromise = fetchTicketData();
 
 function App() {
-  const [tickets, setTickets] = useState([]);
+  const tickets = use(ticketsPromise);
   const [tasks, setTasks] = useState([]);
   const [resolvedTasks, setResolvedTasks] = useState([]);
-
-  useEffect(() => {
-    fetchData().then((data) => setTickets(data));
-  }, []);
 
   const handleTask = (ticket) => {
     if (
@@ -106,12 +98,6 @@ function App() {
           </div>
         </Suspense>
       </Container>
-
-      {/* <div>
-        <Tickets  ticketsdata = {ticketsdata} onList = {handleTicket}></Tickets>
-      </div> */}
-
-      {/* <Tickets fetchPromise={fetchPromise}></Tickets> */}
 
       <Footer></Footer>
       <ToastContainer />
